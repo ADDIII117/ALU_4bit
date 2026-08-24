@@ -1,2 +1,60 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+module alu ( A ,B, OP , alu_out);
+  input [3:0] A ,B ;
+  input [2:0] OP;
+output reg[4:0]alu_out;
+
+always@(*)
+   begin
+     case(OP)
+        3'b000: alu_out=A+B;
+        3'b001: alu_out=A-B;
+        3'b010: alu_out=A&B;
+        3'b011: alu_out=A|B;
+        3'b100: alu_out=A^B;
+        3'b101: alu_out=~A&B;
+        3'b110: alu_out=~(A|B);
+        3'b111: alu_out=~A;
+     default: alu_out=0;
+   endcase
+ end
+ endmodule
+  
+  
+   
+ //testbench 
+ 
+ module TB;
+   reg [3:0] A , B;
+   reg [2:0] OP;
+   wire [4:0] alu_out;
+   
+   
+  alu a1 ( A ,B, OP , alu_out);
+    
+    
+  initial 
+  begin
+    $monitor("Time=%0t | OP=%b | A=%b | B=%b | alu_out=%b", $time, OP, A, B, alu_out);
+   
+    OP=3'b000; A=4'b00101; B=4'b00011;
+    #5
+     OP=3'b001; A=4'b00101; B=4'b00011;
+    #5 
+     OP=3'b010; A=4'b00101; B=4'b00011;
+    #5
+     OP=3'b011; A=4'b00101; B=4'b00011;
+    #5
+     OP=3'b100; A=4'b00101; B=4'b00011;
+    #5
+     OP=3'b101; A=4'b00101; B=4'b00011;
+    #5 
+     OP=3'b110; A=4'b00101; B=4'b00011;
+    #5
+     OP=3'b111; A=4'b00101; B=4'b00011;
+    #5
+    $finish;
+     
+  end 
+endmodule
+   
+
