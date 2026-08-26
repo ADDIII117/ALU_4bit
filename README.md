@@ -1,4 +1,6 @@
 🖥️ ALU Design in Verilog
+
+
 📌 Project Overview
 This repository contains the implementation of a simple Arithmetic Logic Unit (ALU) in Verilog.
 The ALU performs basic arithmetic and logical operations such as addition, subtraction, AND, OR, XOR, NAND-like, NOR, and NOT.
