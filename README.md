@@ -1,13 +1,13 @@
-🖥️ ALU Design in Verilog
+ ALU Design in Verilog
 
 
-📌 Project Overview
+Project Overview
 This repository contains the implementation of a simple Arithmetic Logic Unit (ALU) in Verilog.
 The ALU performs basic arithmetic and logical operations such as addition, subtraction, AND, OR, XOR, NAND-like, NOR, and NOT.
 
 The design was tested and simulated using Xilinx Vivado, and a schematic diagram was generated to visualize the circuit.
 
-⚙️ Features
+ Features
 Inputs:
 
 A (4-bit)
@@ -38,28 +38,19 @@ Supported Operations:
 
 111 → NOT
 
-🛠️ Tools Used
+ Tools Used
 Vivado Design Suite (for simulation and schematic generation)
 
 Verilog HDL (for hardware description)
 
-▶️ Simulation
+Simulation
 Testbench provided to verify all ALU operations.
 
 Waveforms generated in Vivado confirm correct functionality.
 
-Each OP code was tested with sample inputs (A=0101, B=0011).
-
-📐 Schematic Diagram
+Each OP code was tested with sample inputs (A=0101, B=0011). 
+Schematic Diagram
 The schematic was auto-generated in Vivado.
 
 It shows the internal logic gates and connections for each ALU operation.
 
-🚀 How to Run
-Open Vivado and create a new project.
-
-Add the alu.v and TB.v files.
-
-Run Behavioral Simulation to view waveforms.
-
-Use Schematic Viewer to generate the circuit diagram.
