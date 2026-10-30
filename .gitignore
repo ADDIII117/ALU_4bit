@@ -1,0 +1,31 @@
+# .gitignore for Verilog and FPGA projects
+
+# Icarus Verilog outputs
+*.out
+*.vcd
+
+# Vivado / Xilinx generated files
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+*.cache/
+*.hw/webtalk/
+*.ip_user_files/
+*.sim/
+*.runs/
+*.srcs/
+*.xpr
+*.xsa
+*.xdc
+*.bit
+*.mcs
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/

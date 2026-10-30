@@ -1,56 +1,46 @@
- ALU Design in Verilog
+# 4-bit ALU in Verilog
 
+This repository contains a simple 4-bit Arithmetic Logic Unit (ALU) implemented in Verilog. The ALU supports arithmetic and logic operations for 4-bit inputs and produces a 5-bit result to accommodate carry/borrow in arithmetic operations.
 
-Project Overview
-This repository contains the implementation of a simple Arithmetic Logic Unit (ALU) in Verilog.
-The ALU performs basic arithmetic and logical operations such as addition, subtraction, AND, OR, XOR, NAND-like, NOR, and NOT.
+## Features
 
-The design was tested and simulated using Xilinx Vivado, and a schematic diagram was generated to visualize the circuit.
+- Inputs:
+  - `A` : 4-bit input
+  - `B` : 4-bit input
+  - `OP` : 3-bit control signal
+- Output:
+  - `alu_out` : 5-bit result
 
- Features
-Inputs:
+## Supported operations
 
-A (4-bit)
+| OP (3-bit) | Operation |
+| --- | --- |
+| `000` | Addition |
+| `001` | Subtraction |
+| `010` | AND |
+| `011` | OR |
+| `100` | XOR |
+| `101` | `~A & B` |
+| `110` | NOR |
+| `111` | NOT |
 
-B (4-bit)
+## Repository layout
 
-OP (3-bit control signal)
+- `alu.v` — ALU implementation
+- `alu_tb.v` — Verilog testbench for functional simulation
+- `Makefile` — quick simulation command
+- `README.md` — project documentation
 
-Output:
+## Simulation
 
-alu_out (5-bit to capture carry/borrow in arithmetic operations)
+The project can be simulated using Icarus Verilog:
 
-Supported Operations:
+```bash
+make sim
+```
 
-000 → Addition
+This command compiles the Verilog sources and runs the testbench.
 
-001 → Subtraction
+## Notes
 
-010 → AND
-
-011 → OR
-
-100 → XOR
-
-101 → ~A & B
-
-110 → NOR
-
-111 → NOT
-
- Tools Used
-Vivado Design Suite (for simulation and schematic generation)
-
-Verilog HDL (for hardware description)
-
-Simulation
-Testbench provided to verify all ALU operations.
-
-Waveforms generated in Vivado confirm correct functionality.
-
-Each OP code was tested with sample inputs (A=0101, B=0011). 
-Schematic Diagram
-The schematic was auto-generated in Vivado.
-
-It shows the internal logic gates and connections for each ALU operation.
-
+The project was originally created as a simple hardware design exercise and was validated with a Vivado-style test flow. The canonical source files in this repository are now organized in a cleaner, more standard structure for easier reuse and testing.
