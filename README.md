@@ -1,19 +1,21 @@
-# 4-bit ALU in Verilog
+# 4-bit ALU Design in Verilog
 
-This repository contains a simple 4-bit Arithmetic Logic Unit (ALU) implemented in Verilog. The ALU supports arithmetic and logic operations for 4-bit inputs and produces a 5-bit result to accommodate carry/borrow in arithmetic operations.
+This project implements a 4-bit Arithmetic Logic Unit (ALU) in Verilog. It supports both arithmetic and logical operations and produces a 5-bit output so that carry/borrow behavior is handled correctly in arithmetic operations.
 
-## Features
+## Overview
 
-- Inputs:
-  - `A` : 4-bit input
-  - `B` : 4-bit input
-  - `OP` : 3-bit control signal
-- Output:
-  - `alu_out` : 5-bit result
+The ALU takes two 4-bit inputs, `A` and `B`, and uses a 3-bit control signal, `OP`, to select the operation. The designed module is suitable for simulation and digital logic verification in tools such as Icarus Verilog and Vivado.
 
-## Supported operations
+## Inputs and Output
 
-| OP (3-bit) | Operation |
+- `A` : 4-bit input
+- `B` : 4-bit input
+- `OP` : 3-bit operation selector
+- `alu_out` : 5-bit output
+
+## Supported Operations
+
+| OP | Function |
 | --- | --- |
 | `000` | Addition |
 | `001` | Subtraction |
@@ -24,23 +26,32 @@ This repository contains a simple 4-bit Arithmetic Logic Unit (ALU) implemented 
 | `110` | NOR |
 | `111` | NOT |
 
-## Repository layout
+## Repository Structure
 
 - `alu.v` — ALU implementation
-- `alu_tb.v` — Verilog testbench for functional simulation
-- `Makefile` — quick simulation command
-- `README.md` — project documentation
+- `alu_tb.v` — Testbench for functional verification
+- `Makefile` — Utility script to compile and run the simulation
+- `README.md` — Project documentation
 
 ## Simulation
 
-The project can be simulated using Icarus Verilog:
+This project can be simulated with Icarus Verilog using the following command:
 
 ```bash
 make sim
 ```
 
-This command compiles the Verilog sources and runs the testbench.
+This command compiles the Verilog files and runs the testbench to verify the ALU behavior.
+
+## Example Testbench Behavior
+
+The testbench assigns:
+
+- `A = 0101`
+- `B = 0011`
+
+and cycles through all available operation codes to validate the ALU output for each case.
 
 ## Notes
 
-The project was originally created as a simple hardware design exercise and was validated with a Vivado-style test flow. The canonical source files in this repository are now organized in a cleaner, more standard structure for easier reuse and testing.
+This repository was created as a simple digital design exercise for learning and implementing ALU logic in HDL. The project is intentionally lightweight and easy to run in a standard Verilog simulation environment.
